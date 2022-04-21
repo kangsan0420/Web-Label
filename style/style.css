@@ -1,0 +1,58 @@
+body {font-family: 'Roboto', sans-serif; letter-spacing: 1px;}
+
+hr {height: 3px; background-color: black; border: none;}
+
+h1 {font-size: 30pt;}
+h2 {font-size: 14pt;}
+h3 {font-size: 12pt;}
+
+a:link {font-size: 11pt; color: black; text-decoration: none;}
+a:visited {font-size: 11pt; color: black; text-decoration: none;}
+a:hover {font-size: 11pt; color: black; text-decoration: underline;}
+
+input[type=submit] {
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12pt; 
+    border: none;
+    background-color: transparent;
+}
+input[type=submit]:focus {outline: 0;}
+input[type=submit]:hover {text-decoration: underline; cursor:pointer;}
+
+.img_image {
+    height: 300px;
+    border: 1px solid black;
+}
+.table_list {
+    width: 100%;
+    border-top: 2px solid black; 
+    border-bottom: 2px solid black; 
+    border-collapse: collapse;
+    margin: 20px 0px 20px 0px;
+}
+.table_list th{
+    border-bottom: 2px solid black; 
+}
+.table_list td{
+    border-bottom: 1px solid black; 
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.table_image {
+    float: left;
+    border-top: 2px solid black; 
+    border-bottom: 2px solid black; 
+    border-collapse: collapse;
+    margin: 0px 20px 0px 20px;
+}
+.table_image th{
+    border-bottom: 2px solid black; 
+    padding: 5px 0px 15px 0px;
+    text-align: left;
+}
+.table_image td{
+    border-bottom: 1px solid black; 
+    padding: 5px 30px 10px 20px;
+}

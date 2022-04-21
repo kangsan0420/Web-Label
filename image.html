@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Label image</title>    
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../../style.css">   
+</head>
+<body>
+    <h1>Label image</h1>
+    <div><h2><%= data.fname %></h2></div>
+    <hr/>
+    <div style='float: left;'><img src="../../<%= data.fname %>" class='img_image'></div>
+    <form method='post'>
+    <table class='table_image'>
+        <tr><th colspan="2">Select Class</th></tr>
+        <% labels.forEach(function (item, index) { %>
+            <tr>
+                <td>
+                    <% if(index.toString().length==1) index = '0'+index.toString() %>
+                    <%= index %>
+                </td>
+                <td>
+                    <% if(data.label == item.name) { %>
+                        <input type='submit' formaction="/set_label_<%= data.id %>/<%= item.name %>" value="<%= item.name %>" style="color: #C44A49;"/>
+                    <% } else { %>
+                        <input type='submit' formaction="/set_label_<%= data.id %>/<%= item.name %>" value="<%= item.name %>"/>
+                    <% } %>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+    </form>
+    <hr style="clear: both; height: 2px;">
+    <div align='left'>
+        <a href="/list">← List</a> &nbsp;&nbsp;
+        <% if(data.id != 1) { %>
+        <a href="/image/<%= data.id-1 %>">Prev</a> 
+        <%}%>
+        &nbsp;
+        <a href="/image/<%= data.id+1 %>">Next</a>
+    </div>   
+<address>
+<hr/>  
+    LAB, Korea<br>    
+</address>
+</body>
+</html>                
+        

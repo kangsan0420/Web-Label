@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>List Page</title> 
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../../style.css">   
+    <script>
+        var end = window.location.href.split('-')[1]
+        var start = window.location.href.split('-')[0].split('lists/')[1]
+    </script>
+</head>
+<body>
+    <h1>List Page</h1>
+    <div align='right'><a href="/logout">Logout</a></div>
+    <hr/>
+    <div style="float:left;">
+        <% if(page > 10){ %>
+            <a style="text-decoration: none;" href="/move/prev">&lt;</a>&nbsp; 
+        <% } %>
+        <% var be = page-(page-1)%10 %>
+        <% for(var i=be;i<be+10;i++){ %>
+            <% if (endpage >= i) { %>
+                <% if (page == i) { %>
+                    <b><a href="/move/<%= i %>"><%= i %></a></b>&nbsp; 
+                <% } else { %>
+                    <a href="/move/<%= i %>"><%= i %></a>&nbsp; 
+                <% } %>
+            <% } %>
+        <% } %>
+        <% if(parseInt((page-1)/10)*10 + 10 < endpage){ %>
+            <a href="/move/next">&gt;</a>
+        <% } %>
+    </div>
+    <div style="float:right;">
+        <form id="tableForm" action="/changeView/" method="get">
+            <select class="selectpicker" data-style="btn-info" name="selectpicker">
+                <option name="table1" value="20">20 views</option>
+                <option name="table2" value="50">50 views</option>
+                <option name="table3" value="100">100 views</option>
+            </select>
+            <input type="submit" value="Change"/>
+        </form>
+    </div><br>
+    <hr style='height: 2px;'/>
+    <table class='table_list'>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Label</th>
+        </tr>
+        <% data.forEach(function (item, index) { %>
+        <tr>
+            <td><%= item.id %></td>
+            <td><a href="image/<%= item.id %>"><%= item.fname %></a></td>
+            <td><%= item.label %></td>
+        </tr>
+        <% }); %>
+    </table>
+    <hr style='height: 2px;'/>
+    <div style="float:left;">
+        <% if(page > 10){ %>
+            <a style="text-decoration: none;" href="/move/prev">&lt;</a>&nbsp; 
+        <% } %>
+        <% var be = page-(page-1)%10 %>
+        <% for(var i=be;i<be+10;i++){ %>
+            <% if (endpage >= i) { %>
+                <% if (page == i) { %>
+                    <b><a href="/move/<%= i %>"><%= i %></a></b>&nbsp; 
+                <% } else { %>
+                    <a href="/move/<%= i %>"><%= i %></a>&nbsp; 
+                <% } %>
+            <% } %>
+        <% } %>
+        <% if(parseInt(page/10)*10 + 10 < endpage){ %>
+            <a href="/move/next">&gt;</a>
+        <% } %>
+    </div>
+    <div style="float:right;">
+        <form id="tableForm" action="/sort/" method="get">
+            <select class="selectpicker" data-style="btn-info" name="selectpicker">
+                <option value="all">all</option>
+                <% labels.forEach(function (item, index) { %>
+                <option value="<%= item.name %>"><%= item.name %></option>
+                <% }); %>
+            </select>
+            <input type="submit" value="Change"/>
+        </form>
+    </div><br>
+<address> 
+<hr/>
+    LAB, Korea<br>    
+</address>
+</body>
+</html>
+
+
